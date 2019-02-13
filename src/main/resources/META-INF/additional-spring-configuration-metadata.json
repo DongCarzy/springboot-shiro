@@ -1,0 +1,15 @@
+{
+  "properties": [
+    {
+      "name": "sys.admin.name",
+      "type": "java.lang.String",
+      "defaultValue": "admin",
+      "description": "Description for sys.admin.name."
+    },
+    {
+      "name": "sys.admin.password",
+      "type": "java.lang.String",
+      "description": "Description for sys.admin.password."
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-package com.example.springbootshiro.base.web.dto;
+package com.example.springbootshiro.business.web.dto;
 
 import javax.validation.constraints.NotBlank;
 

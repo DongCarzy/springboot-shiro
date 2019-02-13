@@ -1,19 +1,48 @@
 package com.example.springbootshiro.shiro.domain;
 
-import java.util.List;
+import javax.persistence.*;
 
 /**
- * @author carzy
- * @date 2018/08/03
+ * @author carzy.
+ * @date 16:03 2018/12/24
  */
-public class UserInfo extends Identity {
+@Entity
+@Table(name = "sys_user")
+public class UserInfo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "account")
+    private String account;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
-    /**
-     * 一个用户可有拥有多种角色
-     */
-    private List<SysRole> roles;
+
+    @Column(name = "salt")
+    private String salt;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "locked")
+    private Boolean locked;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -31,19 +60,43 @@ public class UserInfo extends Identity {
         this.password = password;
     }
 
-    public List<SysRole> getRoles() {
-        return roles;
+    public String getSalt() {
+        return salt;
     }
 
-    public void setRoles(List<SysRole> roles) {
-        this.roles = roles;
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 }

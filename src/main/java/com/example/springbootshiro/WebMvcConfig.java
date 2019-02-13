@@ -1,6 +1,7 @@
 package com.example.springbootshiro;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.servlet.config.annotation.*;
 
 /**
@@ -21,9 +22,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOrigins(CorsConfiguration.ALL)
                 .allowedMethods("GET", "DELETE", "POST", "PUT", "OPTIONS", "PATCH")
-                .allowedHeaders("*")
+                .allowedHeaders(CorsConfiguration.ALL)
                 .allowCredentials(true);
     }
 

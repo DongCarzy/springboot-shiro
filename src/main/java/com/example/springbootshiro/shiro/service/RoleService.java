@@ -1,31 +1,41 @@
 package com.example.springbootshiro.shiro.service;
 
-import com.example.springbootshiro.shiro.dao.RoleRepository;
-import com.example.springbootshiro.shiro.domain.SysRole;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.example.springbootshiro.shiro.domain.Role;
 
 import java.util.List;
 
 /**
  * @author carzy
- * @date 2018/08/03
  */
-@Service
-public class RoleService {
-
-    private RoleRepository roleRepository;
-
-    @Autowired
-    public void setRoleRepository(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
-    }
+public interface RoleService {
 
     /**
-     * 查询某个用户的角色
-     * @param username
+     * 添加角色
+     *
+     * @param role Role
+     * @return Role
      */
-    public List<SysRole> findUserByName(String username){
-        return this.roleRepository.findRolesByUsername(username);
-    }
+    Role createRole(Role role);
+
+    /**
+     * 删除角色
+     *
+     * @param roleId Integer
+     */
+    void deleteRole(Integer roleId);
+
+    /**
+     * 通过账户号查找用户所有角色
+     *
+     * @param account 账户号 {@link com.example.springbootshiro.shiro.domain.UserInfo account}
+     * @return List<Role>
+     */
+    List<Role> findAllByAccount(String account);
+
+    /**
+     * 查找所有的权限
+     *
+     * @return List<Role>
+     */
+    List<Role> findAll();
 }
